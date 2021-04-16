@@ -23,6 +23,9 @@ You can notice the offensive improvement on the left side for Barca in 2015, als
 ## The Pressure Plot
 You can either close the spaces behind you, or eliminate the opponent time on the ball, and by that, I mean the time from the player received the ball until he decided what to do with it. And as Barcelona likes attack, and leaves a lot of space behind, it is essential to make high pressure after losing the ball so that the opponent can't use the space to threating Barcelona goal. this plot is about where Barcelona applies pressure.
 
+This is a comparison between 2008/2009 season and 2018/2019 season
+![](images/pres2009.png) ![](images/pres2019.png)
+
 ## The Passing Network
 The actual reason I made this plot is because it is super cool, However, there are other reasons, you can take many insights from this plot. The passing network consists of two parts, the first is a group of points where each point represented the average location where the player passed or received the ball and it’s size represent the total passes for the player, the second is line segments between the points that it’s size stand for the number of passes between the two players. I added other part for the plot which is a donut chart to see the types of passes for each player.
 For this plot I only use the most starting XI and you can’t use the remove players option with this plot.
