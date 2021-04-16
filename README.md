@@ -1,8 +1,7 @@
 # Barca Seasonal Comparator
 
-"When you play a match, it is statistically proven that players actually have the ball 3 minutes on average … So, the most important thing is what do you do during those 87 minutes when you do not have the ball. That is what determines whether you’re a good player or not."
-- Johan Cruyff
-- 
+"When you play a match, it is statistically proven that players actually have the ball 3 minutes on average … So, the most important thing is what do you do during those 87 minutes when you do not have the ball. That is what determines whether you’re a good player or not." - Johan Cruyff
+
 Actually, this quote has nothing to do with this project, but come on, it's Cruyff talking about statistics!
 
 However, in this project I used the Statsbomb open events data, so even though we can't Know much about players how do not have the ball, we still can know a lot about the overall performance of Barcelona through seasons from 2004/2005 to 2019/2020.
