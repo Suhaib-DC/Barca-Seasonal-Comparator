@@ -34,12 +34,14 @@ This is a comparison between the seasons 2010/2011 and 2013/2014
 
 ![](images/pn2011.png) ![](images/pn2014.png)
 
-The plot gives you how players connect, for example there is a very strong connection between Xavi, Alves and Messi. Also, the offensive shape can be interpreted from the plot. in 2011 the team attack with 3-4-2-1 by Alves goes to midfield and Abidal being conservative. Messi and Pedro are playing a little bit behind Villa. In 2014 the team with the ball plays with something more like 1-1-5-3. However, because this plot is for the whole season there might be not that accurate.
+The plot gives you how players connect, for example there is a very strong connection between Xavi, Alves and Messi. Also, the offensive shape can be interpreted from the plot. in 2011 the team attack with 3-4-2-1 by Alves goes to midfield and Abidal being conservative. Messi and Pedro are playing a little bit behind Villa. In 2014 the team with the ball plays with something more like 1-1-5-3. However, because the plot is for the whole season it might be not that accurate.
 
 Final note, it's impressive how Sergio almost never passes to behind. and it's even more impressive how large the number of passes was in 2011!
 
 ## The Ball Retaining Plot
-I need to say that this is a hard to read plot, maybe I will make an updated version that is easier. Basically, I find every location that Barca lose the ball and attach it with the location where they get the ball back, then I calculated how passes the opponent did before Barca retain possession. To visualize this, I made 20 clusters. You can see what clusters appears most and how fast Barca retain the ball and find patterns.
+I need to say that this is a hard to read plot, maybe I will make an updated version that is easier. Basically, I have found every location that Barca lose the ball and attached  it with the location where they get the ball back, then I calculated how passes the opponent did before Barca retain possession. To visualize this, I made 20 clusters. You can see what clusters appears most and how fast Barca retain the ball and find patterns.
+
+
 
 
 
