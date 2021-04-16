@@ -41,6 +41,14 @@ Final note, it's impressive how Sergio almost never passes to behind. and it's e
 ## The Ball Retaining Plot
 I need to say that this is a hard to read plot, maybe I will make an updated version that is easier. Basically, I have found every location that Barca lose the ball and attached  it with the location where they get the ball back, then I calculated how passes the opponent did before Barca retain possession. To visualize this, I made 20 clusters. You can see what clusters appears most and how fast Barca retain the ball and find patterns.
 
+To understand the plot, each segment represents a cluster of lose (square) and retain (circle) of the ball, the transparency stands for how much segments in the cluster, the color stands for how many passes the opponent did between losing the ball and retaining it.
+For example, here is a comparison between seasons 2011/2012 and 2017/2018.
+
+![](images/br2012.png) ![](images/br2018.png)
+
+While we were counting PPDA from 4 – 10 in 2012 we started to count within 10 – 80 in 2018 which is saying a lot about the change in Barca style between the two seasons.
+
+## Removing Players 
 
 
 
