@@ -7,7 +7,7 @@ Actually, this quote has nothing to do with this project, but come on, it's Cruy
 However, in this project I used the Statsbomb open events data, so even though we can't Know much about players how do not have the ball, we still can know a lot about the overall performance of Barcelona through seasons from 2004/2005 to 2019/2020.
 
 ## It is a Data Product
-I build a shiny web app to explore the events data for Barcelona in 4 main ways. you can choose one of four plots, two seasons to compare, and you can remove some players to see how the team perform without them and then you can know how much they affected the team.
+I built a shiny web app to explore the events data for Barcelona in 4 main ways. you can choose one of four plots, two seasons to compare, and you can remove some players to see how the team perform without them and then you can know how much they affected the team.
 
 ![](images/UI.PNG) 
 
