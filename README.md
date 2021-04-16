@@ -23,12 +23,20 @@ You can notice the offensive improvement on the left side for Barca in 2015, als
 ## The Pressure Plot
 You can either close the spaces behind you, or eliminate the opponent time on the ball, and by that, I mean the time from the player received the ball until he decided what to do with it. And as Barcelona likes attack, and leaves a lot of space behind, it is essential to make high pressure after losing the ball so that the opponent can't use the space to threating Barcelona goal. this plot is about where Barcelona applies pressure.
 
-This is a comparison between 2008/2009 season and 2018/2019 season
-![](images/pres2009.png) ![](images/pres2019.png)
+
+![](images/pres2009.png)
 
 ## The Passing Network
-The actual reason I made this plot is because it is super cool, However, there are other reasons, you can take many insights from this plot. The passing network consists of two parts, the first is a group of points where each point represented the average location where the player passed or received the ball and it’s size represent the total passes for the player, the second is line segments between the points that it’s size stand for the number of passes between the two players. I added other part for the plot which is a donut chart to see the types of passes for each player.
+The actual reason I made this plot is because it is super cool, However, there are other reasons, you can take many insights from this plot. The passing network consists of two parts, the first is a group of points where each point represents the average location where the player passed or received the ball and it’s size represent the total passes for the player, the second is line segments between the points that it’s size stand for the number of passes between the two players. I added other part for the plot which is a donut chart to see the types of passes for each player.
 For this plot I only use the most starting XI and you can’t use the remove players option with this plot.
+
+This is a comparison between the seasons 2010/2011 and 2013/2014
+
+![](images/pn2011.png) ![](images/pn2014.png)
+
+The plot gives you how players connect, for example there is a very strong connection between Xavi, Alves and Messi. Also, the offensive shape can be interpreted from the plot. in 2011 the team attack with 3-4-2-1 by Alves goes to midfield and Abidal being conservative. Messi and Pedro are playing a little bit behind Villa. In 2014 the team with the ball plays with something more like 1-1-5-3. However, because this plot is for the whole season there might be not that accurate.
+
+Final note, it's impressive how Sergio almost never passes to behind. and it's even more impressive how large the number of passes was in 2011!
 
 ## The Ball Retaining Plot
 I need to say that this is a hard to read plot, maybe I will make an updated version that is easier. Basically, I find every location that Barca lose the ball and attach it with the location where they get the ball back, then I calculated how passes the opponent did before Barca retain possession. To visualize this, I made 20 clusters. You can see what clusters appears most and how fast Barca retain the ball and find patterns.
