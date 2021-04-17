@@ -58,7 +58,7 @@ passes2penalty <- function (events, season) {
                                                  label = round(count/nrow(matches %>% filter(season.season_name == season)), 1)), size = 6) + 
                 
                 # titles
-                labs(title = "How Barcelona move the ball to the oppunent penalty area?",
+                labs(title = "How does Barcelona move the ball to the oppunent's penalty area?",
                      subtitle = paste("Passes and carries to the box, La liga, season ", season, sep = ""),
                      caption = "This plot shows the start points of passes and carries from outside to inside the box") + 
                 
@@ -106,8 +106,8 @@ pressure.plot <- function (events, season) {
                 annotate_pitch(dimensions = pitch_statsbomb, fill = NA, colour = "#EBF0F2") + 
                 theme_pitch() + direction_label(x_label = 60) + 
                 # titles
-                labs(title = "How Barcelona apply pressure?",
-                     subtitle = paste("La liga, season ", season, sep = "")) + 
+                labs(title = "How does Barcelona apply pressure?",
+                     subtitle = paste("Pressure events map, La liga, season ", season, sep = "")) + 
                 
                 # customizing the plot
                 theme(plot.title = element_text(face = "bold", color = "#D8D8D6", size = 22),
@@ -235,10 +235,10 @@ passing.network.plot <- function(events, lineups, season) {
                 # titles
                 labs(title = "Passing network for Barcelona",
                      subtitle = paste("La liga, season ", season, sep = ""),
-                     color = "Type of pass",
-                     caption = "in passing networks, the size of the point indicates the total passes for the player, the size of   
-                                the line between two players indicates the number of basses between them, and the position
-                                of the point is the avarege location where the player pass and recive the ball") + 
+                     legend = "Type of pass",
+                     caption = "In passing networks, the size of the point indicates the total passes for the player,
+                     the size of the line between two players indicates the number of passes between them,
+                     and the position of the point is the average location where the player passed or received the ball") + 
                 
                 # customizing the plot
                 theme(plot.title = element_text(face = "bold", color = "#D8D8D6", size = 22),
@@ -318,11 +318,11 @@ ballRetain <- function(events, season) {
                                      na.value = 'darkgrey', aesthetics = 'color') + 
                 
                 # titles
-                labs(title = "How did Barcelona retains possission of the ball?",
-                     subtitle = paste("Clustring where they lose the ball (square) and where they retain it (circle) and how fast, La Liga, season ", season, sep = ""),
+                labs(title = "How fast does Barcelona retain possession of the ball?",
+                     subtitle = paste("Clustered by location of lose (square) and location of retain (circle), La Liga, season ", season, sep = ""),
                      color = "PPDA",
                      alpha = "Most repeated cluster",
-                     caption = "PPDA is Passes allowed for the oppunent before definsive action") + 
+                     caption = "PPDA is passes allowed for the opponent before defensive action") + 
                 
                 # customizing the plot
                 theme(plot.title = element_text(face = "bold", color = "#D8D8D6", size = 22),

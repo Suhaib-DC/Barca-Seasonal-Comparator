@@ -30,7 +30,7 @@ ui <- fluidPage(
         
         # for choosing the type of the plot
         column(3,
-               h4("The Barca-meter"),
+               h4("The Barca Seasonal Comparator"),
                selectInput('plot.type', 'Plot Type', plot.type.names, "Passes to penalty"),
                br()
         ),
@@ -38,14 +38,15 @@ ui <- fluidPage(
         # for choosing two seasons for comparison
         column(4, offset = 1,
                selectInput('season1', 'The First Season', unique(matches$season.season_name), "2010/2011"),
-               selectInput('season2', 'The Second Season', unique(matches$season.season_name), "2013/2014")
+               selectInput('removePlayers2', 'Removing Players', players2 ,multiple = T)
         ),
         
         
         # select players to see how the performance would be without them
         column(4,
-               selectInput('removePlayers1', 'Removing Players', players1 ,multiple = T),
-               selectInput('removePlayers2', 'Removing Players', players2 ,multiple = T)
+               
+               selectInput('season2', 'The Second Season', unique(matches$season.season_name), "2013/2014"),
+               selectInput('removePlayers1', 'Removing Players', players1 ,multiple = T)
         )
     ),
     
