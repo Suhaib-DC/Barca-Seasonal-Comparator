@@ -2,21 +2,7 @@
 
 ####### Read the matches data #######
 matches <- read.csv("data/matches.csv")
-
-# reading one season lineups
-readSeasonLineups <- function(name) {
-        
-        path = "data/lineups"
-        season.ids <- matches[matches$season.season_name == name,]$match_id
-        lineups <- data.frame()
-        
-        for (i in season.ids) {
-                
-                file = paste(path,"\\", i, ".json", sep = "")
-                lineups <- bind_rows(lineups, jsonlite::fromJSON(txt = file, flatten = TRUE))
-        }
-        lineups
-}
+lineups.df <- read.csv("data/lineups.csv")
 
 
 ####### The Passes to Penalty Plot #######
@@ -136,9 +122,12 @@ pressure.plot <- function (events, season) {
 ####### The Passing Network Plot #######
 passing.network.plot <- function(events, lineups, season) {
         
+        lineups <- lineups.df %>% select(contains(gsub("/", "_", season))) %>% select(1:2)
+        names(lineups) <- c("player.name", "player.nickname")
+        
         # reading passes
-        passes <- events %>% filter(type.name == "Pass", team.name == "Barcelona")
-        passes.rec <- events%>% filter((type.name == "Pass"| type.name == "Ball Receipt*"), team.name == "Barcelona")
+        passes <- events %>% filter(type.name == "Pass", team.name == "Barcelona", player.name %in% lineups$player.name)
+        passes.rec <- events%>% filter((type.name == "Pass"| type.name == "Ball Receipt*"), team.name == "Barcelona", player.name %in% lineups$player.name)
         
         
         # find different types of passes
@@ -157,19 +146,12 @@ passing.network.plot <- function(events, lineups, season) {
                 merge(passes.short, by = "player.name", all = T) %>%
                 mutate(regular = n - (progressive + switches + crosses))
         
-        # find the most starters from the lineups data
-        lineups <- lineups[lineups$team_id == 217,]
-        starters <- do.call(rbind, lineups$lineup) %>% group_by(player_name) %>% summarise(n = n())
-        ord <- order(starters$n, decreasing = T)
-        starters.most <- starters[ord,]$player_name[1:11]
-        
-        # find the nicknames 
-        nicknames <- do.call(rbind, lineups$lineup) %>% select(c("player_name", "player_nickname")) %>% unique()
-        names(nicknames) <- c("player.name", "player.nickname")
         
         # find the average positions where the player passing 
-        passing.network <- passes.rec %>% group_by(player.name) %>% summarise(x= mean(location.x), y = mean(location.y))
-        passing.network <- merge(passing.network, passes.summary, by = "player.name", all = T) %>% merge(nicknames, by = "player.name", all = T)
+        passing.network <- passes.rec %>% group_by(player.name) %>% summarise(x= mean(location.x, na.rm = T), y = mean(location.y, na.rm = T))
+        
+        # merging the summary, locations and nicknames into one data frame
+        passing.network <- merge(passing.network, passes.summary, by = "player.name", all = T) %>% merge(lineups, by = "player.name", all = T)
         
         # find the number of passes between the players
         passes.between <- list()
@@ -184,8 +166,8 @@ passing.network.plot <- function(events, lineups, season) {
         passing.network[is.na(passing.network)] <- 0
         
         # choosing the most 11 starters and adding nicknames 
-        passing.network.11 <- passing.network %>% filter(player.name %in% starters.most) %>%
-                select("player.name", "x", "y", "n", "progressive", "switches", "crosses", "regular",starters.most, "player.nickname")
+        passing.network.11 <- passing.network %>% filter(player.name %in% lineups$player.name) %>%
+                select("player.name", "x", "y", "n", "progressive", "switches", "crosses", "regular",lineups$player.name , "player.nickname")
         
         
         ### Plotting the Passing network ###

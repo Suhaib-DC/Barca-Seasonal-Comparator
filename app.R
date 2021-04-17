@@ -60,9 +60,6 @@ server <- function(input, output, session) {
     # drawing the first plot as png
     output$image1 <- renderImage({
         
-        # reading lineups for the selected season 
-        lineups <- readSeasonLineups(input$season1)
-        
         # reading events for the selected season 
         events <- read.csv(paste("data/events_", gsub("/", "", input$season1), ".csv", sep = "")) 
         
@@ -78,7 +75,7 @@ server <- function(input, output, session) {
             plot1 <- pressure.plot(events, season = input$season1)
             
         } else if (input$plot.type == "Passing Network") {
-            plot1 <- passing.network.plot(events, lineups, season = input$season1)
+            plot1 <- passing.network.plot(events, lineups.df, season = input$season1)
         }else {
             plot1 <- ballRetain(events)
             
@@ -104,9 +101,7 @@ server <- function(input, output, session) {
     
     # drawing the first plot as png
     output$image2 <- renderImage({
-        
-        # reading lineups for the selected season 
-        lineups <- readSeasonLineups(input$season2)
+       
         
         # reading events for the selected season 
         events <- read.csv(paste("data/events_", gsub("/", "", input$season2), ".csv", sep = "")) 
@@ -122,7 +117,7 @@ server <- function(input, output, session) {
             plot2 <- pressure.plot(events, season =  input$season2)
             
         } else if (input$plot.type == "Passing Network") {
-            plot2 <- passing.network.plot(events, lineups, season = input$season2)
+            plot2 <- passing.network.plot(events, lineups.df, season = input$season2)
         }else {
             plot2 <- ballRetain(events)
             

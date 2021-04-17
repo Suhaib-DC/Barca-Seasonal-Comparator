@@ -32,6 +32,23 @@ readSeasonEvents <- function(name) {
         events
 }
 
+
+# function for reading one season lineups
+readSeasonLineups <- function(name) {
+        
+        path = "C:\\Users\\suhai\\Desktop\\All Folders\\R Project\\FootballAnalyticsCourse\\open-data-master\\data\\lineups"
+        season.ids <- matches[matches$season.season_name == name,]$match_id
+        lineups <- data.frame()
+        
+        for (i in season.ids) {
+                
+                file = paste(path,"\\", i, ".json", sep = "")
+                lineups <- bind_rows(lineups, jsonlite::fromJSON(txt = file, flatten = TRUE))
+        }
+        lineups
+}
+
+
 # function for transforming locations from list to two variables x & y
 # this function is from Statsbomb repository on github
 cleanlocations <- function(dataframe) {
@@ -120,3 +137,51 @@ for (season in unique(matches$season.season_name)) {
         write.csv(events, paste("data/events_", season.name, ".csv", sep = ""), row.names = F) 
         
 }
+
+# The first iteration for making the lineups in one data frame
+# reading one season
+lineups <- readSeasonLineups(unique(matches$season.season_name)[1])
+
+# find the most starters from the lineups data
+lineups <- lineups[lineups$team_id == 217,]
+starters <- do.call(rbind, lineups$lineup) %>% group_by(player_name) %>% summarise(n = n())
+ord <- order(starters$n, decreasing = T)
+starters.most <- starters[ord,]$player_name[1:11]
+
+# find the nicknames 
+nicknames <- do.call(rbind, lineups$lineup) %>% select(c("player_name", "player_nickname")) %>% 
+        unique() %>% filter(player_name %in% starters.most)
+
+# make readable names e.g "player.name.2015_2016"
+names(nicknames) <- c(paste("player.name.", gsub("/", "_", season), sep = ""),
+                      paste("player.nickname.", gsub("/", "_", season), sep = ""))
+
+# initialize the data frame
+lineups.df <- data.frame(nicknames)
+
+# all iterations 
+for (season in unique(matches$season.season_name)[-1]) {
+        
+        # reading one season
+        lineups <- readSeasonLineups(season)
+        
+        # find the most starters from the lineups data
+        lineups <- lineups[lineups$team_id == 217,]
+        starters <- do.call(rbind, lineups$lineup) %>% group_by(player_name) %>% summarise(n = n())
+        ord <- order(starters$n, decreasing = T)
+        starters.most <- starters[ord,]$player_name[1:11]
+        
+        # find the nicknames 
+        nicknames <- do.call(rbind, lineups$lineup) %>% select(c("player_name", "player_nickname")) %>% 
+                unique() %>% filter(player_name %in% starters.most)
+        
+        # make readable names e.g "player.name.2015_2016"
+        names(nicknames) <- c(paste("player.name.", gsub("/", "_", season), sep = ""),
+                              paste("player.nickname.", gsub("/", "_", season), sep = ""))
+        
+        lineups.df <- cbind(lineups.df,nicknames)
+      
+}
+
+# writing lineups as csv file 
+write.csv(lineups.df, "data/lineups.csv", row.names = F)
