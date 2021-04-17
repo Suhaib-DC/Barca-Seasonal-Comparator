@@ -50,6 +50,13 @@ While we were counting PPDA from 4 – 10 in 2012 we started to count within 10 
 
 ## Removing Players 
 
+The main idea of removing players option is to find how certain players affected the overall performance of the team. You can choose one or more players and the app will remove their events. by making comparisons between the plot before and after removing the players you can see their effect.
+
+for example, try to see how Xavi and Busquets affected ball retaining, or how Messi and Alves affected passes and carries to the penalty area. notice that the option is not available for passing network plot.
+
+## Data Cleaning 
+
+
 
 
 
