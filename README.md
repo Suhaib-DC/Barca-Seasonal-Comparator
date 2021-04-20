@@ -7,28 +7,28 @@ Actually, this quote has nothing to do with this project, but come on, it's Cruy
 However, in this project I used the Statsbomb open events data, so even though we can't know much about players who do not have the ball, we still can know a lot about the overall performance of Barcelona through seasons from 2004/2005 to 2019/2020.
 
 ## It is a Data Product
-I built a shiny web app to explore the events data for Barcelona in 4 main ways. you can choose one of four plots, two seasons to compare, and you can remove some players to see how the team performs without them, and then you can know how much they affected the team.
+I built a Shiny web app to explore the events data for Barcelona in 4 main ways. You can choose one of four plots, two seasons to compare, and you can remove some players to see how the team performs without them, and then you can know how much they affected the team.
 
 ![](images/UI.PNG) 
 
 ## The Passes to Penalty Plot
-It is well known that Barcelona likes possession of the ball, but with that been said, the purpose of keeping the ball is the same purpose of any other tactics in football, create chances and prevent the opponent from creating chances, so this plot will tell you how many times did Barcelona move the ball to the penalty area (by either passes or carries) and from where.
+It is well known that Barcelona likes possession of the ball, but with that been said, the purpose of keeping the ball is the same purpose of any other tactics in football, create chances and prevent the opponent from creating chances, so this plot will tell you how many times Barcelona moved the ball to the penalty area (by either passes or carries) and from where.
 
 This is a comparison between passes and carries to penalty area in the 2010/2011 season and 2014/2015 season
 
 ![](images/p2p2011.png) ![](images/p2p2015.png)
 
-You can notice the offensive improvement on the left side for Barca in 2015, also you can see that Barca played more long passes in 2015. It might be surprising but Barca actually was better in attack in 2015 by an average of 49 balls in the box per match, and only 44 balls per match in 2011. But let’s be honest, who cares about efficiency when he can see tiki-taka?
+You can notice the offensive improvement on the left side for Barca in 2015, also you can see that Barca played more long passes in 2015. It might be surprising, but Barca actually was better in attack in 2015 by an average of 49 balls in the box per match, and only 44 balls per match in 2011. But let’s be honest, who cares about efficiency when you can watch tiki-taka?
 
 ## The Pressure Plot
-You can either close the spaces behind you, or eliminate the opponent's time on the ball, and by that, I mean the time from the player received the ball until he decided what to do with it. So as Barcelona likes to attack, and leaves a lot of space behind, it is essential to make high pressure after losing the ball so that the opponent can't use the space to threatening Barcelona's goal. this plot is about where Barcelona applies pressure.
+You can either close the spaces behind you, or reduce the opponent's time on the ball, and by that, we mean the time from which the player receives the ball until deciding what to do with it. So, since Barcelona likes to attack, and leaves a lot of space behind, it becomes essential to make high pressure after losing the ball so that the opponent cannot use the space in order to threaten Barcelona's goal. This plot is about where Barcelona applies pressure.
 
 
 ![](images/pres2009.png)
 
 ## The Passing Network
-The actual reason I made this plot is that it is super cool, However, there are other reasons, you can take many insights from this plot. The passing network consists of two parts, the first is a group of points where each point represents the average location where the player passed or received the ball and its size represents the total passes for the player. the second is line segments between the points that its size stands for the number of passes between the two players. I added another part for the plot which is a donut chart to see the types of passes for each player.
-For this plot, I only use the most starting XI and you can’t use the remove players option with this plot.
+The actual reason I made this plot is that it is super cool. However, there are other reasons; you can take many insights from this plot. The passing network consists of two parts, the first is a group of points where each point represents the average location where the player passed or received the ball.  The group's size represents the total passes for the player. The second part is line segments between the points of which the size stands for the number of passes between the two players. A third part was added for the plot which is a donut chart to see the types of passes for each player.
+For this plot, we only use the most starting XI; the "remove players" option cannot be used with this plot.
 
 This is a comparison between the seasons 2010/2011 and 2013/2014
 
